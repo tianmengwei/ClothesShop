@@ -71,5 +71,8 @@ public class OrderDetail {
 		this.order = order;
 	}
 	
-	
+	/*¼ÆËã×Ü¼Û*/
+	public void setTotalprice(double totalprice) {
+		this.totalPrice =(this.clothesPrice)*(this.clothescount);
+	}
 }

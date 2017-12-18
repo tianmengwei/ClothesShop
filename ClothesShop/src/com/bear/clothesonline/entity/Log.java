@@ -1,5 +1,7 @@
 package com.bear.clothesonline.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +17,7 @@ import org.hibernate.annotations.Parameter;
 public class Log {
 	private int logid;
 	private String userName;
-	private String time;
+	private Date time;
 	private User user;
 	
 	@Id
@@ -33,10 +35,10 @@ public class Log {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getTime() {
+	public Date getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 	
@@ -48,6 +50,4 @@ public class Log {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
 }

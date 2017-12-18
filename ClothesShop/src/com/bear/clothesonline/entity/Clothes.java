@@ -18,12 +18,10 @@ import javax.persistence.Table;
 public class Clothes {
 	private Integer id;
 	private String name;	
-	private double price;
+	private int price;
 	private String img1;
 	private ClothesType clothesType;
-	private ClothesDetail clothesDetail;
-	
-	
+	private ClothesDetail clothesDetail;	
    
 	public String getName() {
 		return name;
@@ -40,12 +38,15 @@ public class Clothes {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getPrice() {
+
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+
+	public void setPrice(int price) {
 		this.price = price;
 	}
+
 	public String getImg1() {
 		return img1;
 	}

@@ -1,9 +1,14 @@
 package com.bear.clothesonline.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,12 +20,14 @@ import org.hibernate.annotations.Parameter;
 @Table(name="shoppingcart")
 public class ShoppingCart {
 	private int shoppingcartid;
+	private Integer userid;
 	private String clothesName;
 	private double clothesPrice;
-	private int clothescount;
+	private int clothesCount;
 	private String clothesimg1;
 	private String delete;
 	private User user;
+	private Set<CartItem> cartItemSet = new HashSet<CartItem>();
 	
 	@Id
 	@GeneratedValue(generator="foreign")
@@ -30,8 +37,13 @@ public class ShoppingCart {
 	}
 	public void setShoppingcartid(int shoppingcartid) {
 		this.shoppingcartid = shoppingcartid;
+	}	
+	public Integer getUserid() {
+		return userid;
 	}
-	
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
 	public String getClothesName() {
 		return clothesName;
 	}
@@ -44,11 +56,11 @@ public class ShoppingCart {
 	public void setClothesPrice(double clothesPrice) {
 		this.clothesPrice = clothesPrice;
 	}
-	public int getClothescount() {
-		return clothescount;
+	public int getClothesCount() {
+		return clothesCount;
 	}
-	public void setClothescount(int clothescount) {
-		this.clothescount = clothescount;
+	public void setClothesCount(int clothesCount) {
+		this.clothesCount = clothesCount;
 	}
 	public String getClothesimg1() {
 		return clothesimg1;
@@ -71,4 +83,11 @@ public class ShoppingCart {
 		this.user = user;
 	}
 	
+	@OneToMany(targetEntity=CartItem.class,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	public Set<CartItem> getCartItemSet() {
+		return cartItemSet;
+	}
+	public void setCartItemSet(Set<CartItem> cartItemSet) {
+		this.cartItemSet = cartItemSet;
+	}
 }

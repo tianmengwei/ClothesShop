@@ -13,7 +13,7 @@ import org.hibernate.annotations.Parameter;
 @Entity
 @Table(name="clothesdetail")
 public class ClothesDetail {
-	private Integer id;
+	private int id;
 	private String clothesname;
 	private int clothesprice;
 	private String introduce;
@@ -26,22 +26,18 @@ public class ClothesDetail {
 
 	private Clothes clothes;
 	
-	
-	
-	
-	public String getClothesname() {
-		return clothesname;
-	}
-	
 	@Id
 	@GeneratedValue(generator="foreign1")
 	@GenericGenerator(name="foreign1",strategy="foreign",parameters= {@Parameter(name="property",value="clothes")})
 	@Column(name="clothesdetailsid")
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+	public String getClothesname() {
+		return clothesname;
 	}
 	public void setClothesname(String clothesname) {
 		this.clothesname = clothesname;
@@ -89,16 +85,6 @@ public class ClothesDetail {
 	public void setImg3(String img3) {
 		this.img3 = img3;
 	}
-
-	
-	@OneToOne(mappedBy="clothesDetail")
-	public Clothes getClothes() {
-		return clothes;
-	}
-	public void setClothes(Clothes clothes) {
-		this.clothes = clothes;
-	}
-
 	public String getImg4() {
 		return img4;
 	}
@@ -107,6 +93,11 @@ public class ClothesDetail {
 		this.img4 = img4;
 	}
 	
-	
-	
+	@OneToOne(mappedBy="clothesDetail")
+	public Clothes getClothes() {
+		return clothes;
+	}
+	public void setClothes(Clothes clothes) {
+		this.clothes = clothes;
+	}
 }

@@ -17,25 +17,8 @@ public class UserServiceImpl {
 		this.userDaoImpl.addUser(user);  
 		return true;	      	
 	}
-
-	public String findUsersByName(String name) {
-		 return this.userDaoImpl.findUserByName(name); 
-	}
-
+	
 	public List<User> list() {
 		return this.userDaoImpl.list(); 
 	}
-
-	public User findUsersById(Integer id) {
-		 return this.userDaoImpl.findUserById(id);
-	}
-
-	public void UpdateInfo(User user) {
-		 this.userDaoImpl.UpdateInfo(user); 
-	}
-
-	public void delUserById(Integer id) {
-		this.userDaoImpl.delUserById(id); 
-	}
-	
 }

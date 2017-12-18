@@ -89,6 +89,4 @@ public class User {
 	public void setLogSet(Set<Log> logSet) {
 		LogSet = logSet;
 	}
-	
-	
 }

@@ -11,15 +11,7 @@ import javax.persistence.Table;
 public class ClothesType {
 	private Integer clothestypeid;
 	private String name;
-	
-	
-	
-	
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getClothestypeid() {
@@ -31,5 +23,7 @@ public class ClothesType {
 	public String getName() {
 		return name;
 	}
-	
+	public void setName(String name) {
+		this.name = name;
+	}
 }
